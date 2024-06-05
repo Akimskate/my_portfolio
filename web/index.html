@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
@@ -31,8 +18,96 @@
 
   <title>my_portfolio</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      inset: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+      background-color: black;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    #loading {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #loading-text {
+      font-size: 16px;
+      text-align: center;
+      color: white;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeInOut 4s infinite;
+    }
+
+
+    .progress-container {
+        width: 50%;
+        height: 3px;
+        background-color: #616161;
+    }
+
+    .progress-bar {
+        width: 0%;
+        height: 100%;
+        background-color: #fff;
+        animation: progress 4s linear;
+    }
+
+    @keyframes progress {
+      0% {
+        width: 0%;
+      }
+      50% {
+        width: 50%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <div id="loading">
+    <div id="loading-text">LOADING...</div>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+  </div>
+
+  <script>
+    {{flutter_js}}
+    {{flutter_build_config}}
+
+    _flutter.loader.load({
+      onEntrypointLoaded: async function (engineInitializer) {
+        const appRunner = await engineInitializer.initializeEngine();
+        await appRunner.runApp();
+      }
+    });
+  </script>
 </body>
 </html>

@@ -65,19 +65,7 @@
         width: 0%;
         height: 100%;
         background-color: #fff;
-        animation: progress 4s linear;
-    }
-
-    @keyframes progress {
-      0% {
-        width: 0%;
-      }
-      50% {
-        width: 50%;
-      }
-      100% {
-        width: 100%;
-      }
+        
     }
 
     @keyframes fadeInOut {
@@ -102,9 +90,21 @@
     {{flutter_js}}
     {{flutter_build_config}}
 
+    function addDelay(delay) {
+      return new Promise((resolve) => setTimeout(resolve, delay));
+    }
+
+    const progress = document.getElementsByClassName("progress-bar")[0];
+
+  
+    
     _flutter.loader.load({
       onEntrypointLoaded: async function (engineInitializer) {
+        progress.style.width = '33%';
         const appRunner = await engineInitializer.initializeEngine();
+        progress.style.width = '66%';
+        await addDelay(500);
+        progress.style.width = '99%';
         await appRunner.runApp();
       }
     });

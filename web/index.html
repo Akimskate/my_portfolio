@@ -65,6 +65,7 @@
         width: 0%;
         height: 100%;
         background-color: #fff;
+        transition: width 0.5s ease;
         
     }
 
@@ -93,6 +94,9 @@
     function addDelay(delay) {
       return new Promise((resolve) => setTimeout(resolve, delay));
     }
+    function smoothProgress(width) {
+    progress.style.width = width + '%';
+    }
 
     const progress = document.getElementsByClassName("progress-bar")[0];
 
@@ -100,11 +104,11 @@
     
     _flutter.loader.load({
       onEntrypointLoaded: async function (engineInitializer) {
-        progress.style.width = '33%';
+        smoothProgress(33);
         const appRunner = await engineInitializer.initializeEngine();
-        progress.style.width = '66%';
+        smoothProgress(66);
         await addDelay(500);
-        progress.style.width = '99%';
+        smoothProgress(100);
         await appRunner.runApp();
       }
     });

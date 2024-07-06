@@ -123,6 +123,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.14.0"
+  mouse_follower:
+    dependency: "direct main"
+    description:
+      name: mouse_follower
+      sha256: "7be9edcf25d703cbef21ac03b560fb97b99a3cd9c813adcd68fa5c3adaf28c1d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.2"
   nested:
     dependency: transitive
     description:

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mouse_follower/mouse_follower.dart';
-import 'package:flutter/foundation.dart';
 import 'package:my_portfolio/presentation/home_view/home_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -20,7 +19,9 @@ class MyApp extends StatelessWidget {
                 decoration: BoxDecoration(shape: BoxShape.circle, color: Theme.of(context).primaryColor.withAlpha(150)),
               ),
             ],
-            child: kIsWeb ? const SelectionArea(child: HomeView()) : const HomeView(),
+            child: const SelectionArea(
+              child: HomeView(),
+            ),
           ),
         );
       },

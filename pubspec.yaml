@@ -9,8 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.5.1
   mouse_follower: ^1.2.2
   responsive_builder: ^0.7.0
+  riverpod: ^2.5.1
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/app/utils/background_grid.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
 
 class DesktopPage extends StatelessWidget {
@@ -10,8 +11,11 @@ class DesktopPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Desktop'),
       ),
-      body: const Center(
-        child: Text('Desktop'),
+      body: CustomPaint(
+        painter: BackgroundGrid(color: Theme.of(context).colorScheme.inverseSurface),
+        child: const Center(
+          child: Text('Desktop'),
+        ),
       ),
       floatingActionButton: const ThemeSwitchFAB(),
     );

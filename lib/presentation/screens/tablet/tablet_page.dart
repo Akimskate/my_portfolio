@@ -19,7 +19,7 @@ class TabletPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TitleText(),
+              TitleText(titleSize: 50, helpTextSize: 16),
               SizedBox(height: 20),
               Avatar(),
             ],

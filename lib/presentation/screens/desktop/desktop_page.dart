@@ -19,7 +19,7 @@ class DesktopPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TitleText(),
+              TitleText(titleSize: 60, helpTextSize: 18),
               SizedBox(height: 20),
               Avatar(),
             ],

@@ -19,7 +19,7 @@ class MobileLandscapePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TitleText(),
+              TitleText(titleSize: 40, helpTextSize: 14),
               SizedBox(height: 20),
               Avatar(),
             ],

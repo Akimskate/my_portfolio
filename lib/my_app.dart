@@ -19,6 +19,7 @@ class MyApp extends ConsumerWidget {
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
           themeMode: themeMode,
+          debugShowCheckedModeBanner: false,
           home: MouseFollower(
             onHoverMouseStylesStack: [
               MouseStyle(

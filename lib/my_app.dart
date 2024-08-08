@@ -15,7 +15,13 @@ class MyApp extends ConsumerWidget {
 
         return MaterialApp(
           title: 'Akim Svoboda',
-          theme: ThemeData.light(),
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+            ),
+          ),
           darkTheme: ThemeData.dark(),
           themeMode: themeMode,
           debugShowCheckedModeBanner: false,

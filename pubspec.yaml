@@ -13,6 +13,7 @@ dependencies:
   responsive_builder: ^0.7.0
   riverpod: ^2.5.1
   google_fonts: ^6.2.1
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

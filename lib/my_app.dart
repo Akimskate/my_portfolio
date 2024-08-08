@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mouse_follower/mouse_follower.dart';
 import 'package:my_portfolio/app/providers/theme_provider.dart';
 import 'package:my_portfolio/presentation/home_view/home_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -20,20 +19,8 @@ class MyApp extends ConsumerWidget {
           darkTheme: ThemeData.dark(),
           themeMode: themeMode,
           debugShowCheckedModeBanner: false,
-          home: MouseFollower(
-            onHoverMouseStylesStack: [
-              MouseStyle(
-                size: const Size(50, 50),
-                latency: const Duration(milliseconds: 25),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Theme.of(context).primaryColor.withAlpha(150),
-                ),
-              ),
-            ],
-            child: const SelectionArea(
-              child: HomeView(),
-            ),
+          home: const SelectionArea(
+            child: HomeView(),
           ),
         );
       },

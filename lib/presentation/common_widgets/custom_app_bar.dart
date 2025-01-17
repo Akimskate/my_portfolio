@@ -146,10 +146,6 @@ class LabelName extends StatelessWidget {
       Theme.of(context).colorScheme.inverseSurface,
       Theme.of(context).colorScheme.surface,
       Theme.of(context).colorScheme.inverseSurface,
-      // Colors.white,
-      // Colors.black,
-      // Colors.white,
-      // Colors.grey
     ];
     return Center(
       child: AnimatedTextKit(
@@ -166,7 +162,7 @@ class LabelName extends StatelessWidget {
           ),
         ],
         repeatForever: true,
-        pause: const Duration(milliseconds: 1500),
+        pause: const Duration(milliseconds: 1000),
       ),
     );
   }

@@ -5,8 +5,8 @@ import 'package:my_portfolio/presentation/common_widgets/custom_app_bar.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
 import 'package:my_portfolio/presentation/common_widgets/title_text.dart';
 
-class TabletPage extends StatelessWidget {
-  const TabletPage({super.key});
+class TabletPortraitPage extends StatelessWidget {
+  const TabletPortraitPage({super.key});
 
   @override
   Widget build(BuildContext context) {

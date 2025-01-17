@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/presentation/common_widgets/app_button_styles.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -14,15 +15,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return ScreenTypeLayout.builder(
       breakpoints: const ScreenBreakpoints(desktop: 900, tablet: 650, watch: 250),
       mobile: (_) => OrientationLayoutBuilder(
-        portrait: (context) => _buildMobileAppBar(),
-        landscape: (context) => _buildMobileAppBar(),
+        portrait: (context) => _buildMobileAppBar(context),
+        landscape: (context) => _buildMobileAppBar(context),
       ),
-      tablet: (_) => _buildTabletAppBar(),
-      desktop: (_) => _buildDesktopAppBar(),
+      tablet: (_) => _buildTabletAppBar(context),
+      desktop: (_) => _buildDesktopAppBar(context),
     );
   }
 
-  Widget _buildMobileAppBar() {
+  Widget _buildMobileAppBar(BuildContext context) {
     return AppBar(
       leading: const LabelName(),
       leadingWidth: 150,
@@ -30,7 +31,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           preferredSize: const Size.fromHeight(4.0),
           child: Container(
             color: Colors.grey[300],
-            height: 0.5,
+            height: 0.1,
           )),
       actions: [
         IconButton(
@@ -44,7 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildTabletAppBar() {
+  Widget _buildTabletAppBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
       leading: const LabelName(),
@@ -60,14 +61,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           TextButton(
             onPressed: () {},
+            style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Home'),
           ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Profile'),
+          const SizedBox(
+            width: 20,
           ),
           TextButton(
             onPressed: () {},
+            style: AppButtonStyles.getButtonStyle(context),
+            child: const Text('Profile'),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          TextButton(
+            onPressed: () {},
+            style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Settings'),
           ),
         ],
@@ -89,7 +99,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildDesktopAppBar() {
+  Widget _buildDesktopAppBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
       leading: const LabelName(),
@@ -105,14 +115,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           TextButton(
             onPressed: () {},
+            style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Home'),
           ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Profile'),
+          const SizedBox(
+            width: 30,
           ),
           TextButton(
             onPressed: () {},
+            style: AppButtonStyles.getButtonStyle(context),
+            child: const Text('Profile'),
+          ),
+          const SizedBox(
+            width: 30,
+          ),
+          TextButton(
+            onPressed: () {},
+            style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Settings'),
           ),
         ],
@@ -120,14 +139,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(Icons.search),
+          style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
         IconButton(
           icon: const Icon(Icons.notifications),
+          style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
         IconButton(
           icon: const Icon(Icons.more_vert),
+          style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
       ],

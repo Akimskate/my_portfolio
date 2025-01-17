@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/presentation/common_widgets/app_button_styles.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -84,15 +85,27 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.search),
+          icon: const Icon(
+            FontAwesomeIcons.linkedinIn,
+            size: 20,
+          ),
+          style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
         IconButton(
-          icon: const Icon(Icons.notifications),
+          icon: const Icon(
+            FontAwesomeIcons.xTwitter,
+            size: 20,
+          ),
+          style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
         IconButton(
-          icon: const Icon(Icons.more_vert),
+          icon: const Icon(
+            FontAwesomeIcons.telegram,
+            size: 20,
+          ),
+          style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
       ],
@@ -138,17 +151,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.search),
+          icon: const Icon(
+            FontAwesomeIcons.linkedinIn,
+            size: 20,
+          ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
         IconButton(
-          icon: const Icon(Icons.notifications),
+          icon: const Icon(
+            FontAwesomeIcons.xTwitter,
+            size: 20,
+          ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),
         IconButton(
-          icon: const Icon(Icons.more_vert),
+          icon: const Icon(
+            FontAwesomeIcons.telegram,
+            size: 20,
+          ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {},
         ),

@@ -7,13 +7,14 @@ environment:
   sdk: '>=3.4.0-282.3.beta <4.0.0'
 
 dependencies:
+  animated_text_kit: ^4.2.2
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.5.1
+  font_awesome_flutter: ^10.5.0
+  google_fonts: ^6.2.1
   responsive_builder: ^0.7.0
   riverpod: ^2.5.1
-  google_fonts: ^6.2.1
-  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

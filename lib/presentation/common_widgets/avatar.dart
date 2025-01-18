@@ -12,22 +12,22 @@ class Avatar extends ConsumerWidget {
     final themeMode = ref.watch(themeProvider);
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(125), // 125 for a container size of 250
+        borderRadius: BorderRadius.circular(125),
         boxShadow: [
           BoxShadow(
-            color: themeMode == ThemeMode.dark ? Colors.white54 : Colors.black45, // Color of the glow effect
-            blurRadius: 5.0, // Higher value for a larger glow
-            spreadRadius: 1.0, // Spread of the glow
+            color: themeMode == ThemeMode.dark ? Colors.white54 : Colors.black45,
+            blurRadius: 5.0,
+            spreadRadius: 1.0,
             offset: const Offset(
-              0.0, // Move shadow horizontally
-              0.0, // Move shadow vertically
+              0.0,
+              0.0,
             ),
           ),
         ],
       ),
       child: ClipOval(
         child: Image.asset(
-          'avatar.jpg',
+          'assets/avatar1.jpg',
           width: 250,
           height: 250,
           fit: BoxFit.cover,

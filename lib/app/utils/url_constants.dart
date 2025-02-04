@@ -1,0 +1,11 @@
+class UrlConstants {
+  UrlConstants._();
+  static const String linkedIn = 'https://www.linkedin.com/in/akim-svoboda-28ab1a248/';
+  static const String twitter = 'https://x.com/svoboda_akim';
+  static const String telegram = 'tg://resolve?domain=Akimskate';
+  static const String email = 'mailto:akim.svoboda@gmail.com';
+  static const String djinni = 'https://djinni.co/q/fa60c0ba3e/';
+  static const String gitHub = 'https://github.com/Akimskate';
+}
+
+

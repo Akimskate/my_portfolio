@@ -2,6 +2,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/app/utils/url_constants.dart';
+import 'package:my_portfolio/app/utils/url_launcher_helper.dart';
 import 'package:my_portfolio/presentation/common_widgets/app_button_styles.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -66,7 +68,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: const Text('Home'),
           ),
           const SizedBox(
-            width: 20,
+            width: 15,
           ),
           TextButton(
             onPressed: () {},
@@ -74,7 +76,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: const Text('Profile'),
           ),
           const SizedBox(
-            width: 20,
+            width: 15,
           ),
           TextButton(
             onPressed: () {},
@@ -87,27 +89,36 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.linkedinIn,
-            size: 20,
+            size: 15,
           ),
           style: AppButtonStyles.getButtonStyle(context),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(
-            FontAwesomeIcons.xTwitter,
-            size: 20,
-          ),
-          style: AppButtonStyles.getButtonStyle(context),
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherHelper.launch(UrlConstants.linkedIn);
+          },
         ),
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.telegram,
-            size: 20,
+            size: 15,
           ),
           style: AppButtonStyles.getButtonStyle(context),
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherHelper.launchTelegram();
+          },
         ),
+        IconButton(
+          icon: const Icon(
+            FontAwesomeIcons.github,
+            size: 15,
+          ),
+          style: AppButtonStyles.getButtonStyle(context),
+          onPressed: () {
+            UrlLauncherHelper.launch(UrlConstants.gitHub);
+          },
+        ),
+        const SizedBox(
+          width: 20,
+        )
       ],
     );
   }
@@ -156,15 +167,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             size: 20,
           ),
           style: AppButtonStyles.getButtonStyle(context),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(
-            FontAwesomeIcons.xTwitter,
-            size: 20,
-          ),
-          style: AppButtonStyles.getButtonStyle(context),
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherHelper.launch(UrlConstants.linkedIn);
+          },
         ),
         IconButton(
           icon: const Icon(
@@ -172,8 +177,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             size: 20,
           ),
           style: AppButtonStyles.getButtonStyle(context),
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherHelper.launchTelegram();
+          },
         ),
+        IconButton(
+          icon: const Icon(
+            FontAwesomeIcons.github,
+            size: 20,
+          ),
+          style: AppButtonStyles.getButtonStyle(context),
+          onPressed: () {
+            UrlLauncherHelper.launch(UrlConstants.gitHub);
+          },
+        ),
+        const SizedBox(
+          width: 40,
+        )
       ],
     );
   }

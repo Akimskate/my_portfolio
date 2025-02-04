@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/app/providers/theme_provider.dart';
+import 'package:my_portfolio/app/theme/theme_provider.dart';
 import 'package:my_portfolio/presentation/home_view/home_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 

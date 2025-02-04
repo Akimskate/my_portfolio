@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:my_portfolio/app/providers/theme_provider.dart';
+import 'package:my_portfolio/app/theme/theme_provider.dart';
 import 'package:my_portfolio/app/utils/gradient_text.dart';
 
 class TitleText extends ConsumerWidget {

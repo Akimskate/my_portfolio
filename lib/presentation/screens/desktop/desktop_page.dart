@@ -3,6 +3,7 @@ import 'package:my_portfolio/app/utils/animated_background_ovoids.dart';
 import 'package:my_portfolio/app/utils/background_grid.dart';
 import 'package:my_portfolio/presentation/common_widgets/avatar.dart';
 import 'package:my_portfolio/presentation/common_widgets/custom_app_bar.dart';
+import 'package:my_portfolio/presentation/common_widgets/footer.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
 import 'package:my_portfolio/presentation/common_widgets/title_text.dart';
 
@@ -52,15 +53,22 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
               );
             },
           ),
-          const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TitleText(titleSize: 60, helpTextSize: 18),
-                SizedBox(height: 20),
-                Avatar(),
-              ],
-            ),
+          const Column(
+            children: [
+              Expanded(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TitleText(titleSize: 60, helpTextSize: 18),
+                      SizedBox(height: 20),
+                      Avatar(),
+                    ],
+                  ),
+                ),
+              ),
+              Footer(),
+            ],
           ),
         ],
       ),
@@ -68,3 +76,5 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
     );
   }
 }
+
+

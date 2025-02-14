@@ -1,10 +1,11 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:my_portfolio/app/utils/url_constants.dart';
 import 'package:my_portfolio/app/utils/url_launcher_helper.dart';
 import 'package:my_portfolio/presentation/common_widgets/app_button_styles.dart';
+import 'package:my_portfolio/presentation/common_widgets/name_animated_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -28,13 +29,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   Widget _buildMobileAppBar(BuildContext context) {
     return AppBar(
-      leading: const LabelName(),
+      leading: const NameAnimatedWidget(),
       leadingWidth: 150,
       bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4.0),
           child: Container(
-            color: Colors.grey[300],
-            height: 0.1,
+            color: Theme.of(context).colorScheme.inverseSurface,
+            height: 0.2,
           )),
       actions: [
         IconButton(
@@ -51,12 +52,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _buildTabletAppBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      leading: const LabelName(),
+      leading: const NameAnimatedWidget(),
       leadingWidth: 150,
       bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4.0),
           child: Container(
-            color: Colors.grey[300],
+            color: Theme.of(context).colorScheme.inverseSurface,
             height: 0.5,
           )),
       title: Row(
@@ -126,12 +127,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _buildDesktopAppBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      leading: const LabelName(),
+      leading: const NameAnimatedWidget(),
       leadingWidth: 150,
       bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4.0),
           child: Container(
-            color: Colors.grey[300],
+            color: Theme.of(context).colorScheme.inverseSurface,
             height: 0.5,
           )),
       title: Row(
@@ -199,35 +200,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class LabelName extends StatelessWidget {
-  const LabelName({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    List<Color> colorizeColors = [
-      Theme.of(context).colorScheme.inverseSurface,
-      Theme.of(context).colorScheme.surface,
-      Theme.of(context).colorScheme.inverseSurface,
-    ];
-    return Center(
-      child: AnimatedTextKit(
-        animatedTexts: [
-          ColorizeAnimatedText(
-            'Akim Svoboda',
-            textStyle: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
-            colors: colorizeColors,
-          ),
-          ColorizeAnimatedText(
-            'Dart Side',
-            textStyle: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
-            colors: colorizeColors,
-          ),
-        ],
-        repeatForever: true,
-        pause: const Duration(milliseconds: 1000),
-      ),
-    );
-  }
-}

@@ -11,7 +11,7 @@ class AppButtonStyles {
       }),
       overlayColor: WidgetStateProperty.all(Colors.transparent),
       textStyle: WidgetStateProperty.all(
-        const TextStyle(fontSize: 18),
+        const TextStyle(fontSize: 22),
       ),
     );
   }

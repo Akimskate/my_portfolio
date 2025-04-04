@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -69,7 +68,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: const Text('Home'),
           ),
           const SizedBox(
-            width: 15,
+            width: 20,
           ),
           TextButton(
             onPressed: () {},
@@ -77,7 +76,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: const Text('Profile'),
           ),
           const SizedBox(
-            width: 15,
+            width: 20,
           ),
           TextButton(
             onPressed: () {},
@@ -90,7 +89,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.linkedinIn,
-            size: 15,
+            size: 20,
           ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {
@@ -100,7 +99,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.telegram,
-            size: 15,
+            size: 20,
           ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {
@@ -110,7 +109,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.github,
-            size: 15,
+            size: 20,
           ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {
@@ -144,7 +143,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: const Text('Home'),
           ),
           const SizedBox(
-            width: 30,
+            width: 40,
           ),
           TextButton(
             onPressed: () {},
@@ -152,7 +151,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: const Text('Profile'),
           ),
           const SizedBox(
-            width: 30,
+            width: 40,
           ),
           TextButton(
             onPressed: () {},
@@ -165,7 +164,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.linkedinIn,
-            size: 20,
+            size: 30,
           ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {
@@ -175,7 +174,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.telegram,
-            size: 20,
+            size: 30,
           ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {
@@ -185,7 +184,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.github,
-            size: 20,
+            size: 30,
           ),
           style: AppButtonStyles.getButtonStyle(context),
           onPressed: () {
@@ -199,4 +198,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-

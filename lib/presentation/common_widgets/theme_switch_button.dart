@@ -17,7 +17,7 @@ class ThemeSwitchFAB extends ConsumerWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 60),
+      padding: const EdgeInsets.only(bottom: 130),
       child: FloatingActionButton(
         mini: true,
         backgroundColor: fabBackgroundColor,

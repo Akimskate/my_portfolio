@@ -15,8 +15,8 @@ class BackgroundGrid extends CustomPainter {
       Offset(width / 2, height / 2),
       width / 3,
       [
-        color.withOpacity(1.0),
-        color.withOpacity(0.0),
+        color.withValues(alpha: 1.0),
+        color.withValues(alpha: 0.0),
       ],
     );
 

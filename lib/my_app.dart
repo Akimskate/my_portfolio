@@ -28,6 +28,7 @@ class MyApp extends ConsumerWidget {
           home: const SelectionArea(
             child: HomeView(),
           ),
+          
         );
       },
     );

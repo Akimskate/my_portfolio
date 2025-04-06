@@ -42,7 +42,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             Icons.menu,
             color: Colors.green,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Scaffold.of(context).openEndDrawer();
+          },
         ),
       ],
     );
@@ -81,7 +83,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           TextButton(
             onPressed: () {},
             style: AppButtonStyles.getButtonStyle(context),
-            child: const Text('Settings'),
+            child: const Text('Connect'),
           ),
         ],
       ),
@@ -156,7 +158,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           TextButton(
             onPressed: () {},
             style: AppButtonStyles.getButtonStyle(context),
-            child: const Text('Settings'),
+            child: const Text('Connect'),
           ),
         ],
       ),

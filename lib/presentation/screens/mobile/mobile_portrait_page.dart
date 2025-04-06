@@ -3,6 +3,7 @@ import 'package:my_portfolio/app/utils/background_grid.dart';
 import 'package:my_portfolio/presentation/common_widgets/avatar.dart';
 import 'package:my_portfolio/presentation/common_widgets/custom_app_bar.dart';
 import 'package:my_portfolio/presentation/common_widgets/djinni_button.dart';
+import 'package:my_portfolio/presentation/common_widgets/custom_drawer.dart';
 import 'package:my_portfolio/presentation/common_widgets/footer.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
 import 'package:my_portfolio/presentation/common_widgets/title_text.dart';
@@ -14,6 +15,7 @@ class MobilePortraitPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
+      endDrawer: CustomDrawer(),
       body: CustomPaint(
         painter: BackgroundGrid(color: Theme.of(context).colorScheme.inverseSurface),
         child: const Column(

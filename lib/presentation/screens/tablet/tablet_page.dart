@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/presentation/common_widgets/custom_app_bar.dart';
 import 'package:my_portfolio/presentation/common_widgets/footer.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
-import 'package:my_portfolio/presentation/screens/desktop/sections/desktop_portfolio_section.dart';
-import 'package:my_portfolio/presentation/screens/desktop/sections/desktop_profile_section.dart';
+import 'package:my_portfolio/presentation/screens/tablet/sections/tablet_portfolio_section.dart';
+import 'package:my_portfolio/presentation/screens/tablet/sections/tablet_profile_section.dart';
 
-class DesktopPage extends StatefulWidget {
-  const DesktopPage({super.key});
+class TabletPage extends StatefulWidget {
+  const TabletPage({super.key});
 
   @override
-  State<DesktopPage> createState() => _DesktopPageState();
+  State<TabletPage> createState() => _TabletPortraitPageState();
 }
 
-class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStateMixin {
+class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -33,7 +33,6 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: const CustomAppBar(),
       body: CustomScrollView(
@@ -41,13 +40,13 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
           SliverToBoxAdapter(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: DesktopProfileSection(controller: _controller),
+              child: TabletProfileSection(controller: _controller),
             ),
           ),
           SliverToBoxAdapter(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: const DesktopPortfolioSection(),
+              child: TabletPortfolioSection(),
             ),
           ),
           const SliverToBoxAdapter(

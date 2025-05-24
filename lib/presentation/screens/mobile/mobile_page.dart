@@ -1,34 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/presentation/common_widgets/custom_app_bar.dart';
+import 'package:my_portfolio/presentation/common_widgets/custom_drawer.dart';
 import 'package:my_portfolio/presentation/common_widgets/footer.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
-import 'package:my_portfolio/presentation/screens/desktop/sections/desktop_portfolio_section.dart';
-import 'package:my_portfolio/presentation/screens/desktop/sections/desktop_profile_section.dart';
+import 'package:my_portfolio/presentation/screens/mobile/sections/mobile_portfolio_section.dart';
+import 'package:my_portfolio/presentation/screens/mobile/sections/mobile_profile_section.dart';
 
-class DesktopPage extends StatefulWidget {
-  const DesktopPage({super.key});
-
-  @override
-  State<DesktopPage> createState() => _DesktopPageState();
-}
-
-class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 10),
-    )..repeat(reverse: true);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+class MobilePage extends StatelessWidget {
+  const MobilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +15,22 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
 
     return Scaffold(
       appBar: const CustomAppBar(),
+      endDrawer: CustomDrawer(),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: DesktopProfileSection(controller: _controller),
+              child: MobileProfileSection(),
             ),
           ),
           SliverToBoxAdapter(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: const DesktopPortfolioSection(),
+              child: MobilePortfolioSection(),
             ),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Footer(),
           ),
         ],

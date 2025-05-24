@@ -8,7 +8,12 @@ import 'package:my_portfolio/presentation/common_widgets/name_animated_widget.da
 import 'package:responsive_builder/responsive_builder.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final VoidCallback onScrollToProfile;
+  final VoidCallback onScrollToPortfolio;
+  final VoidCallback onScrollToFooter;
+
+  const CustomAppBar(
+      {super.key, required this.onScrollToProfile, required this.onScrollToPortfolio, required this.onScrollToFooter});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -65,7 +70,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextButton(
-            onPressed: () {},
+            onPressed: onScrollToProfile,
             style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Home'),
           ),
@@ -73,7 +78,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 20,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: onScrollToPortfolio,
             style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Profile'),
           ),
@@ -81,7 +86,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 20,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: onScrollToFooter,
             style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Connect'),
           ),
@@ -140,7 +145,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextButton(
-            onPressed: () {},
+            onPressed: onScrollToProfile,
             style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Home'),
           ),
@@ -148,7 +153,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 40,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: onScrollToPortfolio,
             style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Profile'),
           ),
@@ -156,7 +161,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 40,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: onScrollToFooter,
             style: AppButtonStyles.getButtonStyle(context),
             child: const Text('Connect'),
           ),

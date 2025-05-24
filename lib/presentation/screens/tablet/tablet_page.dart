@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/app/utils/scroll_to_section.dart';
 import 'package:my_portfolio/presentation/common_widgets/custom_app_bar.dart';
 import 'package:my_portfolio/presentation/common_widgets/footer.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
@@ -13,6 +14,9 @@ class TabletPage extends StatefulWidget {
 }
 
 class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProviderStateMixin {
+  final tabletProfileKey = GlobalKey();
+  final tabletPortfolioKey = GlobalKey();
+  final tabletFooterKey = GlobalKey();
   late AnimationController _controller;
 
   @override
@@ -34,7 +38,11 @@ class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProvid
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        onScrollToProfile: () => scrollToSection(tabletProfileKey),
+        onScrollToPortfolio: () => scrollToSection(tabletPortfolioKey),
+        onScrollToFooter: () => scrollToSection(tabletFooterKey),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

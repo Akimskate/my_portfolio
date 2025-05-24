@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/presentation/common_widgets/app_button_styles.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  final VoidCallback onScrollToProfile;
+  final VoidCallback onScrollToPortfolio;
+  final VoidCallback onScrollToFooter;
+
+  const CustomDrawer(
+      {super.key, required this.onScrollToProfile, required this.onScrollToPortfolio, required this.onScrollToFooter});
 
   @override
   Widget build(BuildContext context) {
@@ -10,14 +15,19 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.deepPurple,
             ),
             child: Center(
               child: CircleAvatar(
                 radius: 40,
-                backgroundImage: NetworkImage('https://www.example.com/your-avatar.jpg'),
+                child: ClipOval(
+                  child: Image.asset(
+                    'assets/avatar1.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ),
@@ -38,7 +48,10 @@ class CustomDrawer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Future.delayed(const Duration(milliseconds: 300), onScrollToProfile);
+                },
                 style: AppButtonStyles.getButtonStyle(context),
                 child: const Text('Home'),
               ),
@@ -46,7 +59,11 @@ class CustomDrawer extends StatelessWidget {
                 width: 20,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Future.delayed(const Duration(milliseconds: 300), onScrollToPortfolio);
+                },
+                // onPressed: onScrollToPortfolio,
                 style: AppButtonStyles.getButtonStyle(context),
                 child: const Text('Profile'),
               ),
@@ -54,7 +71,10 @@ class CustomDrawer extends StatelessWidget {
                 width: 20,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Future.delayed(const Duration(milliseconds: 300), onScrollToFooter);
+                },
                 style: AppButtonStyles.getButtonStyle(context),
                 child: const Text('Connect'),
               ),

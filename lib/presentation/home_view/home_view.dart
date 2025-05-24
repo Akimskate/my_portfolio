@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/presentation/screens/desktop/desktop_page.dart';
-import 'package:my_portfolio/presentation/screens/mobile/mobile_portrait_page.dart';
-import 'package:my_portfolio/presentation/screens/mobile/mobile_landscape_page.dart';
-import 'package:my_portfolio/presentation/screens/tablet/tablet_landscape_page.dart';
-import 'package:my_portfolio/presentation/screens/tablet/tablet_portrait_page.dart';
+import 'package:my_portfolio/presentation/screens/mobile/mobile_page.dart';
+import 'package:my_portfolio/presentation/screens/tablet/tablet_page.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeView extends StatelessWidget {
@@ -14,12 +12,12 @@ class HomeView extends StatelessWidget {
     return ScreenTypeLayout.builder(
       breakpoints: const ScreenBreakpoints(desktop: 900, tablet: 650, watch: 250),
       mobile: (_) => OrientationLayoutBuilder(
-        portrait: (context) => const MobilePortraitPage(),
-        landscape: (context) => const MobileLandscapePage(),
+        portrait: (context) => const MobilePage(),
+        landscape: (context) => const MobilePage(),
       ),
       tablet: (_) => OrientationLayoutBuilder(
-        portrait: (context) => const TabletPortraitPage(),
-        landscape: (context) => const TabletLandscapePage(),
+        portrait: (context) => const TabletPage(),
+        landscape: (context) => const TabletPage(),
       ),
       desktop: (_) => const DesktopPage(),
     );

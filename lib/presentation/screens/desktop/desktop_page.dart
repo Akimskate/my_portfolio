@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/app/utils/scroll_to_section.dart';
 import 'package:my_portfolio/presentation/common_widgets/custom_app_bar.dart';
 import 'package:my_portfolio/presentation/common_widgets/footer.dart';
 import 'package:my_portfolio/presentation/common_widgets/theme_switch_button.dart';
@@ -14,6 +15,10 @@ class DesktopPage extends StatefulWidget {
 
 class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+
+  final desktopProfileKey = GlobalKey();
+  final desktopPortfolioKey = GlobalKey();
+  final desktopFooterKey = GlobalKey();
 
   @override
   void initState() {
@@ -35,22 +40,29 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        onScrollToProfile: () => scrollToSection(desktopProfileKey),
+      onScrollToPortfolio: () => scrollToSection(desktopPortfolioKey),
+      onScrollToFooter: () => scrollToSection(desktopFooterKey),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
+            key: desktopProfileKey,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
               child: DesktopProfileSection(controller: _controller),
             ),
           ),
           SliverToBoxAdapter(
+            key: desktopPortfolioKey,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
               child: const DesktopPortfolioSection(),
             ),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
+            key: desktopFooterKey,
             child: Footer(),
           ),
         ],

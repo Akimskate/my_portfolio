@@ -15,6 +15,7 @@ class DesktopPage extends StatefulWidget {
 
 class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  final ScrollController _scrollController = ScrollController();
 
   final desktopProfileKey = GlobalKey();
   final desktopPortfolioKey = GlobalKey();
@@ -31,6 +32,7 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
 
   @override
   void dispose() {
+    _scrollController.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -42,23 +44,29 @@ class _DesktopPageState extends State<DesktopPage> with SingleTickerProviderStat
     return Scaffold(
       appBar: CustomAppBar(
         onScrollToProfile: () => scrollToSection(desktopProfileKey),
-      onScrollToPortfolio: () => scrollToSection(desktopPortfolioKey),
-      onScrollToFooter: () => scrollToSection(desktopFooterKey),
+        onScrollToPortfolio: () => scrollToSection(desktopPortfolioKey),
+        onScrollToFooter: () => scrollToSection(desktopFooterKey),
       ),
       body: CustomScrollView(
+        controller: _scrollController,
         slivers: [
           SliverToBoxAdapter(
             key: desktopProfileKey,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: DesktopProfileSection(controller: _controller),
+              child: DesktopProfileSection(
+                controller: _controller,
+                scrollController: _scrollController,
+              ),
             ),
           ),
           SliverToBoxAdapter(
             key: desktopPortfolioKey,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: const DesktopPortfolioSection(),
+              child: DesktopPortfolioSection(
+                scrollController: _scrollController,
+              ),
             ),
           ),
           SliverToBoxAdapter(

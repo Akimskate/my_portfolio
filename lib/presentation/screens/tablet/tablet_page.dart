@@ -14,10 +14,12 @@ class TabletPage extends StatefulWidget {
 }
 
 class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  final ScrollController _scrollController = ScrollController();
+
   final tabletProfileKey = GlobalKey();
   final tabletPortfolioKey = GlobalKey();
   final tabletFooterKey = GlobalKey();
-  late AnimationController _controller;
 
   @override
   void initState() {
@@ -30,6 +32,7 @@ class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProvid
 
   @override
   void dispose() {
+    _scrollController.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -37,6 +40,7 @@ class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProvid
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: CustomAppBar(
         onScrollToProfile: () => scrollToSection(tabletProfileKey),
@@ -48,13 +52,18 @@ class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProvid
           SliverToBoxAdapter(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: TabletProfileSection(controller: _controller),
+              child: TabletProfileSection(
+                controller: _controller,
+                scrollController: _scrollController,
+              ),
             ),
           ),
           SliverToBoxAdapter(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: screenHeight),
-              child: TabletPortfolioSection(),
+              child: TabletPortfolioSection(
+                scrollController: _scrollController,
+              ),
             ),
           ),
           const SliverToBoxAdapter(

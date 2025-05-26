@@ -48,6 +48,7 @@ class _TabletPortraitPageState extends State<TabletPage> with SingleTickerProvid
         onScrollToFooter: () => scrollToSection(tabletFooterKey),
       ),
       body: CustomScrollView(
+        controller: _scrollController,
         slivers: [
           SliverToBoxAdapter(
             child: ConstrainedBox(

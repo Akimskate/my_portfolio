@@ -1,22 +1,21 @@
 name: my_portfolio
-description: "A new Flutter project."
-publish_to: 'none'
+description: "Akim Svoboda Portfolio"
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.4.0-282.3.beta <4.0.0'
+  sdk: ">=3.9.0 <4.0.0"
 
 dependencies:
   animated_text_kit: ^4.2.3
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.6.1
-  font_awesome_flutter: ^10.8.0
-  google_fonts: ^6.2.1
-  particles_network: ^1.6.4
+  font_awesome_flutter: ^10.10.0
+  google_fonts: ^6.3.0
+  particles_network: ^1.8.0
   responsive_builder: ^0.7.1
-  riverpod: ^2.6.1
-  url_launcher: ^6.3.1
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/app/utils/portfolio_assets.dart';
+import 'package:my_portfolio/app/utils/portfolio_carousel_slider_widget.dart';
 import 'package:my_portfolio/presentation/common_widgets/section_wrapper.dart';
 import 'package:particles_network/particles_network.dart';
 
@@ -22,10 +24,7 @@ class _DesktopPortfolioSectionState extends State<DesktopPortfolioSection> with 
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 2000),
-    );
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
 
     _fadeAnimations = List.generate(3, (i) {
       return Tween(begin: 0.0, end: 1.0).animate(
@@ -67,6 +66,16 @@ class _DesktopPortfolioSectionState extends State<DesktopPortfolioSection> with 
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    for (final list in portfolioScreens) {
+      for (final path in list) {
+        precacheImage(AssetImage(path), context);
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: widget.scrollController,
@@ -95,25 +104,18 @@ class _DesktopPortfolioSectionState extends State<DesktopPortfolioSection> with 
               child: Transform.translate(
                 offset: Offset(0, -parallaxOffset),
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: List.generate(3, (index) {
+                  children: List.generate(portfolioScreens.length, (index) {
                     return FadeTransition(
                       opacity: _fadeAnimations[index],
                       child: SlideTransition(
                         position: _slideAnimations[index],
-                        child: Container(
-                          margin: EdgeInsets.all(32),
+                        child: PortfolioCarouselSliderWidget(
                           height: 600,
-                          width: 300,
-                          color: Colors.black,
-                          child: Center(
-                            child: Text(
-                              'Project ${index + 1}',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
+                          width: 350,
+                          images: portfolioScreens[index],
+                          title: 'Project ${index + 1}',
                         ),
                       ),
                     );

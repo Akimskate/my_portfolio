@@ -27,3 +27,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/portfolio/project_1/
+    - assets/portfolio/project_2/
+    - assets/portfolio/project_3/

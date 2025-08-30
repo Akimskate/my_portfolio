@@ -56,7 +56,8 @@ class PortfolioCarouselSliderWidget extends StatelessWidget {
               ),
               child: Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inverseSurface,
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 0.2,

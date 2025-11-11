@@ -1,4 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/app/utils/portfolio_assets.dart';
+import 'package:my_portfolio/app/utils/portfolio_carousel_slider_widget.dart';
 import 'package:my_portfolio/presentation/common_widgets/section_wrapper.dart';
 import 'package:particles_network/particles_network.dart';
 
@@ -22,10 +25,7 @@ class _TabletPortfolioSectionState extends State<TabletPortfolioSection> with Si
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 2000),
-    );
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
 
     _fadeAnimations = List.generate(3, (i) {
       return Tween(begin: 0.0, end: 1.0).animate(
@@ -92,35 +92,32 @@ class _TabletPortfolioSectionState extends State<TabletPortfolioSection> with Si
             ),
             SectionWrapper(
               center: true,
+              adaptiveCardWidth: true,
               child: Transform.translate(
                 offset: Offset(0, -parallaxOffset),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: List.generate(
-                    3,
-                    (index) {
-                      return FadeTransition(
-                        opacity: _fadeAnimations[index],
-                        child: SlideTransition(
-                          position: _slideAnimations[index],
-                          child: Container(
-                            margin: EdgeInsets.all(16),
-                            height: 400,
-                            width: 300,
-                            color: Colors.black,
-                            child: Center(
-                              child: Text(
-                                'Project ${index + 1}',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
+                child: CarouselSlider.builder(
+                  itemCount: portfolioAssets.length,
+                  options: CarouselOptions(
+                    height: 500,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    viewportFraction: 0.4,
                   ),
+                  itemBuilder: (context, index, realIndex) {
+                    final asset = portfolioAssets[index];
+                    return FadeTransition(
+                      opacity: _fadeAnimations[index],
+                      child: SlideTransition(
+                        position: _slideAnimations[index],
+                        child: PortfolioCarouselSliderWidget(
+                          height: 400,
+                          width: 300,
+                          images: asset.portfolioScreens,
+                          title: asset.projectName,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),

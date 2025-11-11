@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/app/utils/portfolio_assets.dart';
 import 'package:my_portfolio/app/utils/portfolio_carousel_slider_widget.dart';
@@ -68,7 +69,7 @@ class _DesktopPortfolioSectionState extends State<DesktopPortfolioSection> with 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    for (final list in portfolioScreens) {
+    for (final list in portfolioAssets.map((e) => e.portfolioScreens)) {
       for (final path in list) {
         precacheImage(AssetImage(path), context);
       }
@@ -101,12 +102,19 @@ class _DesktopPortfolioSectionState extends State<DesktopPortfolioSection> with 
             ),
             SectionWrapper(
               center: true,
+              adaptiveCardWidth: true,
               child: Transform.translate(
                 offset: Offset(0, -parallaxOffset),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: List.generate(portfolioScreens.length, (index) {
+                child: CarouselSlider.builder(
+                  itemCount: portfolioAssets.length,
+                  options: CarouselOptions(
+                    height: 650,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    viewportFraction: 0.4,
+                  ),
+                  itemBuilder: (context, index, realIndex) {
+                    final asset = portfolioAssets[index];
                     return FadeTransition(
                       opacity: _fadeAnimations[index],
                       child: SlideTransition(
@@ -114,15 +122,16 @@ class _DesktopPortfolioSectionState extends State<DesktopPortfolioSection> with 
                         child: PortfolioCarouselSliderWidget(
                           height: 600,
                           width: 350,
-                          images: portfolioScreens[index],
-                          title: 'Project ${index + 1}',
+                          images: asset.portfolioScreens,
+                          title: asset.projectName,
                         ),
                       ),
                     );
-                  }),
+                  },
                 ),
               ),
             ),
+
           ],
         );
       },

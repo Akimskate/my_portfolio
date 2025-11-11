@@ -25,44 +25,27 @@ class PortfolioCarouselSliderWidget extends StatelessWidget {
       margin: margin,
       height: height,
       width: width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(borderRadius)),
       clipBehavior: Clip.hardEdge,
-      child: Stack(
-        fit: StackFit.expand,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          CarouselSlider(
-            options: CarouselOptions(
-              enlargeCenterPage: true,
-              enableInfiniteScroll: true,
-              autoPlay: false,
-              viewportFraction: 0.85,
+          Expanded(
+            child: CarouselSlider(
+              options: CarouselOptions(enlargeCenterPage: true, enableInfiniteScroll: true),
+              items: images.map((imagePath) {
+                return Image.asset(imagePath, fit: BoxFit.cover);
+              }).toList(),
             ),
-            items: images.map((imagePath) {
-              return Image.asset(
-                imagePath,
-                fit: BoxFit.cover,
-              );
-            }).toList(),
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: const BoxDecoration(
-              ),
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.inverseSurface,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.2,
-                ),
-              ),
+          SizedBox(height: 12),
+          Text(
+            title,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.inverseSurface,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.2,
             ),
           ),
         ],
